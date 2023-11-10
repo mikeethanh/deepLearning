@@ -91,23 +91,43 @@ giải quyết được bài toán XOR. Đâu là sự khác nhau:
 1. (a) Tại sao hàm activation phải non-linear? Điều gì xẩy ra nếu hàm linear activation được
 sử dụng?
 Linear (Tuyến tính): Một hàm được gọi là tuyến tính nếu biểu diễn của nó là một đường thẳng
-Non-linear (Không tuyến tính): Một hàm được gọi là không tuyến tính nếu biểu diễn của nó không phải là một đường thẳng
+Non-linear (Không tuyến tính): Một hàm được gọi là không tuyến tính nếu biểu diễn của nó không 
+phải là một đường thẳng
 
-Trong ngữ cảnh của neural networks và machine learning, hàm activation non-linear thường được sử dụng để giúp mô hình học được các biểu diễn phức tạp hơn của dữ liệu. Các hàm như sigmoid, tanh, hoặc ReLU là các ví dụ của hàm activation non-linear thường được sử dụng trong các lớp của neural networks để tạo nên độ phức tạp và khả năng học của mô hình.
+Trong ngữ cảnh của neural networks và machine learning, hàm activation non-linear thường được sử
+ dụng để giúp mô hình học được các biểu diễn phức tạp hơn của dữ liệu. Các hàm như sigmoid, tanh, 
+ hoặc ReLU là các ví dụ của hàm activation non-linear thường được sử dụng trong các lớp của neural
+  networks để tạo nên độ phức tạp và khả năng học của mô hình.
 
-àm activation thường được thiết kế là non-linear trong các mô hình neural network vì tính chất này giúp mô hình có khả năng học được các biểu diễn phức tạp và non-linear từ dữ liệu. Nếu hàm activation là linear, tức là một hàm tuyến tính như hàm identity (f(x) = x), thì mỗi layer trong mạng neural chỉ tương đương với một phép biến đổi tuyến tính. Kết quả là, dù có thêm nhiều layer, tổng thể mô hình vẫn chỉ là một hàm tuyến tính.
+àm activation thường được thiết kế là non-linear trong các mô hình neural network vì tính chất này
+giúp mô hình có khả năng học được các biểu diễn phức tạp và non-linear từ dữ liệu. Nếu hàm activation
+ là linear, tức là một hàm tuyến tính như hàm identity (f(x) = x), thì mỗi layer trong mạng neural chỉ
+  tương đương với một phép biến đổi tuyến tính. Kết quả là, dù có thêm nhiều layer, tổng thể mô hình vẫn
+   chỉ là một hàm tuyến tính.
 
-Nếu một mạng neural chỉ chứa các phép biến đổi tuyến tính, thì việc thêm các layer mới sẽ không tăng khả năng biểu diễn của mô hình, và mô hình sẽ giống như một mô hình tuyến tính đơn giản. Điều này giảm bớt khả năng của mô hình trong việc học các biểu diễn phức tạp và non-linear của dữ liệu, làm mất đi lợi ích của việc sử dụng mạng neural.
+Nếu một mạng neural chỉ chứa các phép biến đổi tuyến tính, thì việc thêm các layer mới sẽ không tăng khả
+ năng biểu diễn của mô hình, và mô hình sẽ giống như một mô hình tuyến tính đơn giản. Điều này giảm bớt khả
+  năng của mô hình trong việc học các biểu diễn phức tạp và non-linear của dữ liệu, làm mất đi lợi ích của việc
+   sử dụng mạng neural.
 
-Hàm activation non-linear, như sigmoid, tanh, hoặc ReLU, giúp mô hình học được các mối quan hệ phức tạp giữa các đặc trưng đầu vào và đầu ra, cũng như giúp mô hình khả năng học được các đặc trưng phức tạp của dữ liệu.
+Hàm activation non-linear, như sigmoid, tanh, hoặc ReLU, giúp mô hình học được các mối quan hệ phức tạp giữa 
+các đặc trưng đầu vào và đầu ra, cũng như giúp mô hình khả năng học được các đặc trưng phức tạp của dữ liệu.
 
 
  Tại sao cần nhiều layer và nhiều node trong 1 hidden layer?
  
-Biểu diễn đa tầng (Hierarchical Representation): Mỗi layer trong một neural network có thể học các đặc trưng hoặc mức độ trừu tượng khác nhau. Các layer sâu hơn thường học các đặc trưng cấp cao hơn và phức tạp hơn so với các layer gần input. Bằng cách này, mô hình có khả năng học các biểu diễn theo cách có tổ chức và cấp độ khác nhau.
+Biểu diễn đa tầng (Hierarchical Representation): Mỗi layer trong một neural network có thể học các đặc trưng
+ hoặc mức độ trừu tượng khác nhau. Các layer sâu hơn thường học các đặc trưng cấp cao hơn và phức tạp hơn so 
+ với các layer gần input. Bằng cách này, mô hình có khả năng học các biểu diễn theo cách có tổ chức và cấp độ khác nhau.
 
-Khả năng học các biểu diễn phức tạp: Một số vấn đề thực tế có độ phức tạp cao, và để có khả năng mô hình hóa chúng, cần có đủ độ phức tạp trong kiến trúc của mạng neural. Các hidden layer với nhiều node cung cấp khả năng biểu diễn đa dạng hơn của các hàm số, giúp mô hình học được các biểu diễn phức tạp.
+Khả năng học các biểu diễn phức tạp: Một số vấn đề thực tế có độ phức tạp cao, và để có khả năng mô hình hóa
+ chúng, cần có đủ độ phức tạp trong kiến trúc của mạng neural. Các hidden layer với nhiều node cung cấp khả
+  năng biểu diễn đa dạng hơn của các hàm số, giúp mô hình học được các biểu diễn phức tạp.
 
-Tính phi tuyến (Non-linearity): Nếu chỉ sử dụng một layer và ít node, mô hình sẽ giống như một mô hình tuyến tính và sẽ không có khả năng học các mối quan hệ phi tuyến tính giữa các đặc trưng. Việc thêm các layer và node với các hàm activation phi tuyến giúp mô hình trở nên phi tuyến tính, mở rộng khả năng biểu diễn của nó.
+Tính phi tuyến (Non-linearity): Nếu chỉ sử dụng một layer và ít node, mô hình sẽ giống như một mô hình tuyến
+ tính và sẽ không có khả năng học các mối quan hệ phi tuyến tính giữa các đặc trưng. Việc thêm các layer và
+  node với các hàm activation phi tuyến giúp mô hình trở nên phi tuyến tính, mở rộng khả năng biểu diễn của nó.
 
-Regularization và tránh overfitting: Việc sử dụng nhiều layer và node cũng có thể giúp kiểm soát việc overfitting (quá mức học) bằng cách áp dụng regularization tự nhiên. Một số phương pháp như dropout và weight regularization có thể được áp dụng để giảm thiểu rủi ro overfitting.
+Regularization và tránh overfitting: Việc sử dụng nhiều layer và node cũng có thể giúp kiểm soát việc overfitting
+ (quá mức học) bằng cách áp dụng regularization tự nhiên. Một số phương pháp như dropout và weight regularization
+  có thể được áp dụng để giảm thiểu rủi ro overfitting.
