@@ -1,0 +1,17 @@
+"DNN" là viết tắt của "Deep Neural Network" (Mạng Neural Sâu) và "CNN" là viết tắt của "Convolutional Neural Network" (Mạng Neural Tích Chập). 
+Đây đều là kiến trúc mạng neural sâu được sử dụng trong lĩnh vực máy học và thị giác máy tính.
+
+Deep Neural Network (DNN):
+
+Ý nghĩa: DNN là một mô hình mạng neural sâu, tức là một kiến trúc mạng neural có nhiều tầng (layer) ẩn. Các tầng này giúp mô hình học được các 
+biểu diễn phức tạp từ dữ liệu đầu vào.
+Ứng dụng: DNN thường được sử dụng trong nhiều nhiệm vụ như nhận dạng hình ảnh, dịch máy, và các vấn đề khác liên quan đến việc học biểu diễn từ dữ liệu.
+Convolutional Neural Network (CNN):
+
+Ý nghĩa: CNN là một loại DNN đặc biệt được thiết kế đặc biệt cho xử lý dữ liệu lưới như hình ảnh. Nó sử dụng các tầng tích chập để tìm kiếm các 
+đặc trưng không gian trong dữ liệu đầu vào.
+Ứng dụng: CNN rất phổ biến trong thị giác máy tính, bao gồm việc nhận dạng đối tượng trong ảnh, phân loại ảnh, và nhiều ứng dụng khác liên quan 
+đến xử lý hình ảnh và video.
+Trong nền tảng máy học, quá trình training (huấn luyện) mô hình DNN hoặc CNN thường bao gồm việc cập nhật trọng số của mạng dựa trên sự chênh lệch
+ giữa đầu ra dự đoán và đầu ra thực tế (loss). Điều này được thực hiện thông qua thuật toán lan truyền ngược (backpropagation) và tối ưu hóa hàm 
+ mất mát để giảm thiểu sai số của mô hình.
