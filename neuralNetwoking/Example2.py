@@ -52,8 +52,12 @@ class NeuralNetwork:
             # (self.b[i].T): Vector bias của layer hiện tại (self.b[i]), được chuyển vị để có cùng chiều dài với out.
             out = sigmoid(np.dot(out, self.W[i]) + (self.b[i].T))
             A.append(out)
-
-
+        for i in A:
+            print('A')
+            print(i)
+        for b in self.b:
+            print('B')
+            print(b)
         # quá trình backpropagation
         y = y.reshape(-1, 1)  # Correct indentation
 
