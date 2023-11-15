@@ -29,9 +29,9 @@ class NeuralNetwork:
         
         # # Khởi tạo các tham số ở mỗi layer
         for i in range(0, len(layers)-1):
-            w_ = np.random.randn(layers[i], layers[i+1])
+            w_ = np.ones((layers[i], layers[i+1]))
             b_ = np.zeros((layers[i+1], 1))
-            self.W.append(w_/layers[i])
+            self.W.append(w_)
             self.b.append(b_)
 
     #  Tóm tắt mô hình neural network
@@ -41,7 +41,7 @@ class NeuralNetwork:
     # Train mô hình với dữ liệu
     def fit_partial(self, x, y):
         A = [x]
-        # # quá trình feedforward
+        # quá trình feedforward
 
         # out = A[-1]: Biến out được khởi tạo với giá trị của layer cuối cùng trong danh sách A, tức là giá trị đầu vào x. A[-1] là cách Python lấy phần tử cuối cùng của danh sách.
         out = A[-1]
@@ -52,12 +52,6 @@ class NeuralNetwork:
             # (self.b[i].T): Vector bias của layer hiện tại (self.b[i]), được chuyển vị để có cùng chiều dài với out.
             out = sigmoid(np.dot(out, self.W[i]) + (self.b[i].T))
             A.append(out)
-        for i in A:
-            print('A')
-            print(i)
-        for b in self.b:
-            print('B')
-            print(b)
         # quá trình backpropagation
         y = y.reshape(-1, 1)  # Correct indentation
 
