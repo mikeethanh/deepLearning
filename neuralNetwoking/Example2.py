@@ -63,7 +63,7 @@ class NeuralNetwork:
 
         for i in reversed(range(0, len(self.layers)-1)):
             dw_ = np.dot((A[i]).T, dA[-1] * sigmoid_derivative(A[i+1]))
-            db_ = (np.sum(dA[-1] * sigmoid_derivative(A[i+1]), 0)).reshape(-1, 1)
+            db_ = np.sum(dA[-1] * sigmoid_derivative(A[i+1]),axis=  0).reshape(-1, 1)
             dA_ = np.dot(dA[-1] * sigmoid_derivative(A[i+1]), self.W[i].T)
             dW.append(dw_)
             db.append(db_)
