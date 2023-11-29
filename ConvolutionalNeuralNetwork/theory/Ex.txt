@@ -1,0 +1,75 @@
+1.Convolutional layer để làm gì? Lại sao mỗi layer cần nhiều kernel?
+-Mỗi kernel trong một convolutional layer là một ma trận có kích thước nhất định, được trượt qua từng phần của ảnh đầu vào hoặc 
+feature maps để tạo ra các feature maps mới. Mỗi kernel này sẽ tập trung vào việc trích xuất một đặc trưng cụ thể từ ảnh hoặc feature 
+map đó. Ví dụ, một kernel có thể tập trung vào việc phát hiện cạnh, một kernel khác có thể tìm kiếm các đặc trưng như đường cong, texture,
+ hoặc các đối tượng khác trong ảnh.
+
+Mỗi layer cần nhiều kernel vì mỗi kernel chỉ có thể trích xuất một số lượng hữu hạn các đặc trưng từ dữ liệu đầu vào. Bằng cách sử dụng nhiều 
+kernel khác nhau trong mỗi layer, mô hình có thể học được nhiều đặc trưng và thông tin đa dạng từ ảnh, từ đó cải thiện khả năng phân loại hoặc
+ dự đoán của mạng.
+
+Tổng hợp lại, mỗi convolutional layer cần nhiều kernel để mở rộng khả năng học và trích xuất các đặc trưng đa dạng từ dữ liệu đầu vào, cải thiện
+ khả năng của mô hình trong việc nhận diện, phân loại hoặc xử lý ảnh
+
+ 2.Hệ số của convolutional layer là gì?
+ -Hệ số của một convolutional layer trong mạng neural convolutional (CNN) thường là các ma trận trọng số được sử dụng để thực hiện phép tích chập 
+ với đầu vào để tạo ra các feature maps. Trong ngữ cảnh của CNN, hệ số thường được gọi là các kernel hoặc filter.
+
+Các hệ số này được học trong quá trình huấn luyện mô hình. Ban đầu, chúng thường được khởi tạo ngẫu nhiên hoặc theo một phương pháp khởi tạo cụ thể
+. Sau đó, trong quá trình lan truyền ngược (backpropagation) và cập nhật trọng số (thông qua các thuật toán tối ưu hóa như gradient descent), mô hình
+ sẽ điều chỉnh các hệ số này dựa trên độ lỗi giữa dự đoán và kết quả thực tế để tối ưu hóa hiệu suất của mô hình.
+
+Mỗi kernel trong một convolutional layer là một ma trận trọng số, đóng vai trò là bộ lọc để thực hiện phép tích chập với đầu vào. Các giá trị trong kernel
+ này ảnh hưởng đến cách mà đặc trưng được trích xuất từ dữ liệu đầu vào. Việc học và điều chỉnh các hệ số này giúp mô hình phát hiện các đặc trưng quan trọng
+  từ ảnh và cải thiện khả năng của mô hình trong các tác vụ như nhận diện, phân loại hoặc xử lý ảnh.
+
+
+3.Tại sao cần flatten trong CNN
+
+Trong mạng neural convolutional (CNN), việc sử dụng lớp Flatten thường được thực hiện để chuyển đổi tensor từ một định dạng dữ liệu dạng lưới 
+(ví dụ: ma trận 3D trong các convolutional layers) thành một định dạng dữ liệu phẳng (ví dụ: vector 1D) trước khi đưa vào các lớp fully connected 
+layers (hoàn toàn kết nối).
+
+Lý do cần phải thực hiện Flatten trong CNN bao gồm:
+
+Kết nối với các lớp fully connected: Các lớp fully connected yêu cầu dữ liệu đầu vào có dạng vector 1 chiều để thực hiện phép toán ma trận nhân. 
+Việc Flatten giúp biến đổi tensor đầu vào từ các feature maps của các lớp convolutional trở thành một vector dài, từ đó có thể được sử dụng làm đầu 
+vào cho các lớp fully connected.
+
+Học các đặc trưng trừu tượng: Các lớp convolutional trước khi Flatten thường tập trung vào việc trích xuất đặc trưng cấp thấp đến cấp cao từ ảnh. Khi 
+Flatten, các đặc trưng này được tổng hợp thành một vector dài, giúp mô hình học các đặc trưng tổng quát và trừu tượng hơn, từ đó cải thiện khả năng tổng 
+quát hóa của mô hình.
+
+Phù hợp với các kiến trúc mạng thông thường: Trong CNN, các lớp convolutional thường được sử dụng để trích xuất đặc trưng, sau đó được kết nối với các lớp 
+fully connected để thực hiện việc phân loại hoặc dự đoán. Flatten giúp kết nối các phần này với nhau theo kiến trúc thông thường của mạng neural.
+
+Tóm lại, việc sử dụng Flatten trong CNN giúp chuyển đổi dữ liệu từ tensor dạng lưới sang vector phẳng, tạo điều kiện cho việc kết nối với các lớp fully 
+connected và hỗ trợ quá trình học các đặc trưng tổng quát và trừu tượng từ dữ liệu hình ảnh.
+
+
+4. Tại sao trong model VGG16, ở layer càng sâu thì wight, height giảm nhưng depth lại tăng?
+
+
+Mô hình VGG16 là một trong những kiến trúc mạng neural convolutional (CNN) đáng chú ý được đề xuất bởi nhóm nghiên cứu tại Đại học Oxford. 
+Điểm đặc biệt của VGG16 là sự tăng dần về độ sâu của mạng thông qua việc xếp chồng các convolutional layers.
+
+Trong VGG16, khi đi từ các lớp đầu tiên đến các lớp sâu hơn, các thông số kích thước của feature maps thường giảm theo các layer và độ sâu 
+(depth) tăng. Lý do chính cho việc giảm kích thước width và height cùng với tăng depth ở các lớp sâu hơn có thể được giải thích như sau:
+
+Pooling layers: Trong mô hình VGG16, các lớp pooling thường được sử dụng sau mỗi vài convolutional layers để giảm kích thước của feature maps, 
+giữ lại thông tin quan trọng và giảm độ phức tạp của mô hình. Pooling layers như MaxPooling hoặc AveragePooling giúp giảm độ phân giải của feature
+ maps, từ đó giảm kích thước width và height của chúng.
+
+Convolutional layers: Các convolutional layers có thể có số lượng filters (hoặc kernels) tăng dần khi đi sâu vào mạng để học các đặc trưng cấp cao hơn. 
+Việc tăng depth này thường đi đôi với việc giảm kích thước của feature maps thông qua việc sử dụng các filters có kích thước nhỏ hơn hoặc áp dụng các kỹ
+ thuật stride để giảm kích thước.
+
+Giảm chiều sâu và kích thước ở các layers cuối cùng: Các lớp fully connected ở cuối mô hình thường có số lượng neurons lớn, do đó, trước khi đưa vào các
+ lớp này, thông thường sẽ có một lớp Global Average Pooling hoặc Flatten để giảm chiều sâu và chuyển từ tensor 3D sang vector 1D để có thể kết nối với các
+  lớp fully connected.
+
+Tóm lại, trong VGG16, sự giảm kích thước width và height của feature maps thường đi kèm với việc tăng độ sâu (depth) thông qua sử dụng pooling layers
+ và convolutional layers để trích xuất các đặc trưng và giảm độ phức tạp của mô hình trước khi đưa vào các lớp fully connected cuối cùng.
+
+
+
